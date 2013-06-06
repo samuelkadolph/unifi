@@ -2,20 +2,19 @@ require "uri"
 
 module Unifi
   require "unifi/connection"
-  require "unifi/device"
-  require "unifi/sta"
+  require "unifi/site"
 
   class Controller
-    attr_reader :devices, :endpoint, :password, :stas, :username
+    attr_reader :connection, :endpoint, :password, :sites, :username
 
     def initialize(endpoint, username, password)
       self.endpoint = endpoint
       self.username = username
       self.password = password
 
+      @sites = Site::Collection.new(self)
+
       set_connection
-      @devices = DeviceCollection.new(self)
-      @stas = StaCollection.new(self)
     end
 
     def endpoint=(value)
