@@ -17,8 +17,13 @@ module Unifi
     end
 
     def endpoint=(value)
-      value = URI(value) unless value.is_a?(URI::HTTP)
-      @endpoint = value
+      if value.is_a?(URI::HTTP)
+        @endpoint = value
+      elsif value.respond_to?(:start_with?) && value.start_with?("http")
+        @endpoint = URI(value)
+      else
+        @endpoint = URI("https://" << value)
+      end
     end
 
     def get(path, data = nil, headers = nil)

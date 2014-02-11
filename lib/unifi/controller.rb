@@ -18,7 +18,6 @@ module Unifi
     end
 
     def endpoint=(value)
-      value = URI(value) unless value.is_a?(URI::HTTP)
       @endpoint = value
       set_connection
     end

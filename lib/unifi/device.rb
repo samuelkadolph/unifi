@@ -11,8 +11,8 @@ module Unifi
                   :na_tx_retries, :name, :next_heartbeat_at, :ng_channel, :ng_eirp, :ng_extchannel, :ng_gain, :ng_num_sta,
                   :ng_state, :ng_tx_power, :ng_ast_be_xmit, :ng_ast_cst, :ng_ast_txto, :ng_tx_packets, :ng_tx_rates,
                   :ng_tx_retries, :num_sta, :radio_na, :radio_ng, :radio_table, :rx_bytes, :rx_bytes_d, :scanning, :serial,
-                  :site_id, :stat, :state, :tx_bytes, :tx_bytes_d, :type, :uplink, :uplink_table, :uptime, :user_num_sta,
-                  :vap_table, :version, :vwireEnabled, :vwire_table, :wlangroup_id_na, :wlangroup_id_ng, :x, :x_authkey,
+                  :site_id, :stat, :state, :tx_bytes, :tx_bytes_d, :type, :upgradable, :uplink, :uplink_table, :uptime, :user_num_sta,
+                  :vap_table, :version, :vwireEnabled, :vwire_table, :wlan_overrides, :wlangroup_id_na, :wlangroup_id_ng, :x, :x_authkey,
                   :x_fingerprint, :x_vwirekey, :y
 
     alias _uptime uptime

@@ -3,10 +3,11 @@ module Unifi
   require "unifi/collection"
   require "unifi/device"
   require "unifi/sta"
+  require "unifi/setting"
 
   class Site < Base
     attr_accessor :desc, :name
-    attr_reader :devices, :stas
+    attr_reader :devices, :settings, :stas
 
     class Collection < Collection
       self.klass = Site
@@ -17,6 +18,7 @@ module Unifi
         super.each do |site|
           site.instance_exec do
             @devices = Device::Collection.new(controller, site)
+            @settings = Setting::Collection.new(controller, site)
             @stas = Sta::Collection.new(controller, site)
           end
         end
